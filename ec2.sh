@@ -17,6 +17,8 @@ subnetid=$4
 
 launch_ec2()
 {
+echo -e "$ami_id\n$keypair_name\n$Instance_type\n$subnetid"
+
 aws ec2 run-instances --image-id $ami_id --count 1 --instance-type $Instance_type --key-name $keypair_name --security-group-ids sg-088974251af4f8415 --subnet-id $subnetid --region ap-south-1 > ec2.txt
 }
 

@@ -14,12 +14,13 @@ ami_id=$1
 keypair_name=$2
 Instance_type=$3
 subnetid=$4
+region=$5
 
 launch_ec2()
 {
-echo -e "$ami_id\n$keypair_name\n$Instance_type\n$subnetid"
+echo -e "$ami_id\n$keypair_name\n$Instance_type\n$subnetid\n$region"
 
-aws ec2 run-instances --image-id $ami_id --count 1 --instance-type $Instance_type --key-name $keypair_name --security-group-ids sg-088974251af4f8415 --subnet-id $subnetid --region ap-south-1 > ec2.txt
+aws ec2 run-instances --image-id $ami_id --count 1 --instance-type $Instance_type --key-name $keypair_name --security-group-ids sg-088974251af4f8415 --subnet-id $subnetid --region $5 > ec2.txt
 }
 
 instancespec()
